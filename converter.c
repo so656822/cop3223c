@@ -22,7 +22,7 @@ int get_validated_int(int min, int max, const char *prompt, const char *err){
 
         if (isint != 1) {
             printf("\nInput is not an int\n");
-            
+            while (getchar() != '\n');
         } 
         
         else if (value < min || value > max) {
@@ -69,8 +69,8 @@ void convert_temperature(void) {
     float input;
     float result;
 
-    // Promt user using get_validated_int function
-    direction = get_validated_int(1, 2, "\n--- Temperature ---\n\n1. Celsius to Fahrenheit\n2. Fahrenheit to Celsius\nEnter direction (1-2): ", "Invalid choice. Try again.");
+    // Prompt user using get_validated_int function
+    direction = get_validated_int(1, 2, "\n--- Temperature ---\n\n1. Celsius to Fahrenheit\n2. Fahrenheit to Celsius\nEnter direction (1-2): ", "Invalid direction. Try again.");
 
     //C to F case
     if (direction == 1) {
@@ -81,7 +81,7 @@ void convert_temperature(void) {
         result = (input * C_TO_F_SCALE) + C_TO_F_OFFSET;
 
         //Print Results
-        printf("%.2f °C = %.2f °F\n", input, result);
+        printf("%.2f°C = %.2f°F\n", input, result);
     } 
     
     // F to C case
@@ -93,27 +93,28 @@ void convert_temperature(void) {
         result = (input - C_TO_F_OFFSET) / C_TO_F_SCALE;
 
         //Print Results
-        printf("%.2f °F = %.2f °C\n", input, result);
+        printf("%.2f° = %.2f°C\n", input, result);
     }
 };
+
 void convert_distance(void) {
     int direction;
     float input;
     float result;
 
     // Prompt user using get_validated_int function
-    direction = get_validated_int(1, 2, "\n--- Distance ---\n\n1. Miles to Kilometers\n2. Kilometers to Miles\nEnter direction (1-2): ", "Invalid choice. Try again.");
+    direction = get_validated_int(1, 2, "\n--- Distance ---\n\n1. Miles to Kilometers\n2. Kilometers to Miles\nEnter direction (1-2): ", "Invalid direction. Try again.");
 
     // Mi to Km case
     if (direction == 1) {
-        printf("Enter distance in Miles: ");
+        printf("Enter distance in miles: ");
         scanf("%f", &input);
 
         // Calculate value
         result = input * MI_TO_KM;
 
         // Print Results
-        printf("%.2f Miles = %.2f Kilometers\n", input, result);
+        printf("%.2f miles = %.2f km\n", input, result);
     }
 
     // Km to Mi case
@@ -125,7 +126,7 @@ void convert_distance(void) {
         result = input / MI_TO_KM;
 
         // Print Results
-        printf("%.2f Kilometers = %.2f Miles\n", input, result);
+        printf("%.2f km = %.2f miles\n", input, result);
     }
 };
 
@@ -135,18 +136,18 @@ void convert_weight(void) {
     float result;
 
     // Prompt user using get_validated_int function
-    direction = get_validated_int(1, 2, "\n--- Weight ---\n\n1. Pounds to Kilograms\n2. Kilograms to Pounds\nEnter direction (1-2): ", "Invalid choice. Try again.");
+    direction = get_validated_int(1, 2, "\n--- Weight ---\n\n1. Pounds to Kilograms\n2. Kilograms to Pounds\nEnter direction (1-2): ", "Invalid direction. Try again.");
 
     // Lb to Kg case
     if (direction == 1) {
-        printf("Enter weight in Pounds: ");
+        printf("Enter weight in lbs: ");
         scanf("%f", &input);
 
         // Calculate value
         result = input * LB_TO_KG;
 
         // Print Results
-        printf("%.2f Pounds = %.2f kg\n", input, result);
+        printf("%.2f lbs = %.2f kg\n", input, result);
     }
 
     // Kg to Lb case
@@ -158,7 +159,7 @@ void convert_weight(void) {
         result = input / LB_TO_KG;
 
         // Print Results
-        printf("%.2f kg = %.2f Pounds\n", input, result);
+        printf("%.2f kg = %.2f lbs\n", input, result);
     }
 };
 
@@ -168,11 +169,11 @@ void convert_speed(void) {
     float result;
 
     // Prompt user using get_validated_int function
-    direction = get_validated_int(1, 2, "\n--- Speed ---\n\n1. Miles per hour  to Kilometers per hour\n2. Kilometers per hour to Miles per hour\nEnter direction (1-2): ", "Invalid choice. Try again.");
+    direction = get_validated_int(1, 2, "\n--- Speed ---\n\n1. MPH to KPH\n2. KPH to MPH\nEnter direction (1-2): ", "Invalid direction. Try again.");
 
     // MPH to KPH case
     if (direction == 1) {
-        printf("Enter speed in Miles per Hour: ");
+        printf("Enter speed in mph: ");
         scanf("%f", &input);
 
         // Calculate value
@@ -184,7 +185,7 @@ void convert_speed(void) {
 
     // KPH to MPH case
     else {
-        printf("Enter speed in Kilometers per Hour: ");
+        printf("Enter speed in kph: ");
         scanf("%f", &input);
 
         // Calculate value
