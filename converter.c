@@ -13,7 +13,8 @@ void convert_speed(void);
 
 int get_validated_int(int min, int max, const char *prompt, const char *err){
     
-    int value, isint;
+    int value;
+    int isint;
 
     do {
         printf("%s", prompt);
@@ -21,7 +22,7 @@ int get_validated_int(int min, int max, const char *prompt, const char *err){
 
         if (isint != 1) {
             printf("\nInput is not an int\n");
-            while (getchar() != '\n');
+            
         } 
         
         else if (value < min || value > max) {
@@ -97,7 +98,8 @@ void convert_temperature(void) {
 };
 void convert_distance(void) {
     int direction;
-    float input, result;
+    float input;
+    float result;
 
     // Prompt user using get_validated_int function
     direction = get_validated_int(1, 2, "\n--- Distance ---\n\n1. Miles to Kilometers\n2. Kilometers to Miles\nEnter direction (1-2): ", "Invalid choice. Try again.");
@@ -129,7 +131,8 @@ void convert_distance(void) {
 
 void convert_weight(void) {
     int direction;
-    float input, result;
+    float input;
+    float result;
 
     // Prompt user using get_validated_int function
     direction = get_validated_int(1, 2, "\n--- Weight ---\n\n1. Pounds to Kilograms\n2. Kilograms to Pounds\nEnter direction (1-2): ", "Invalid choice. Try again.");
@@ -161,10 +164,11 @@ void convert_weight(void) {
 
 void convert_speed(void) {
     int direction;
-    float input, result;
+    float input;
+    float result;
 
     // Prompt user using get_validated_int function
-    direction = get_validated_int(1, 2, "\n--- Speed ---\n\n1. Miles per hour  to KPH\n2. Kilometers per hour to Miles per hour\nEnter direction (1-2): ", "Invalid choice. Try again.");
+    direction = get_validated_int(1, 2, "\n--- Speed ---\n\n1. Miles per hour  to Kilometers per hour\n2. Kilometers per hour to Miles per hour\nEnter direction (1-2): ", "Invalid choice. Try again.");
 
     // MPH to KPH case
     if (direction == 1) {
