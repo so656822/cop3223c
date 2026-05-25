@@ -93,7 +93,7 @@ void convert_temperature(void) {
         result = (input - C_TO_F_OFFSET) / C_TO_F_SCALE;
 
         //Print Results
-        printf("%.2f° = %.2f°C\n", input, result);
+        printf("%.2f°F = %.2f°C\n", input, result);
     }
 };
 
