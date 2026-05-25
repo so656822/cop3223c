@@ -16,15 +16,17 @@ int get_validated_int(int min, int max, const char *prompt, const char *err){
     int value;
     int isint;
 
+    // Run loop to see if num is and it or is in bounds 
     do {
         printf("%s", prompt);
         isint = scanf("%d", &value);
 
         if (isint != 1) {
             printf("\nInput is not an int\n");
-            while (getchar() != '\n');
+            
         } 
         
+        // If number is not in bounds return message passed in the function
         else if (value < min || value > max) {
             printf("%s\n", err);
             isint = 0;
